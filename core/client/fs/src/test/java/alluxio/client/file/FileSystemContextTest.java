@@ -13,7 +13,6 @@ package alluxio.client.file;
 
 import static org.junit.Assert.fail;
 
-import alluxio.ClientContext;
 import alluxio.Constants;
 import alluxio.conf.Configuration;
 import alluxio.conf.PropertyKey;
@@ -22,32 +21,49 @@ import alluxio.resource.CloseableResource;
 import com.google.common.io.Closer;
 import org.junit.Test;
 
+import java.util.function.Supplier;
+
 /**
  * Tests {@link FileSystemContext}.
  */
 public final class FileSystemContextTest {
 
-  /**
-   * This test ensures acquiring all the available FileSystem master clients blocks further
-   * requests for clients. It also ensures clients are available for reuse after they are released
-   * by the previous owners. If the test takes longer than 10 seconds, a deadlock most likely
-   * occurred preventing the release of the master clients.
-   */
+  private final FileSystemContext mFileSystemContext =
+          FileSystemContext.create(Configuration.global());
+
   @Test(timeout = 10000)
-  public void acquireAtMaxLimit() throws Exception {
+  public void acquireFileSystemMasterClient() throws Exception {
+    acquireAtMaxLimit(mFileSystemContext::acquireMasterClientResource);
+  }
+
+  @Test(timeout = 10000)
+  public void acquireBlockMasterClient() throws Exception {
+    acquireAtMaxLimit(mFileSystemContext::acquireBlockMasterClientResource);
+  }
+
+  /**
+   * This test ensures acquiring all the available resources from context blocks further
+   * requests for the same resource.
+   * It also ensures that resources are available for reuse after they are released
+   * by the previous owners. If the test takes longer than 10 seconds, a deadlock most likely
+   * occurred preventing the release of resources.
+   *
+   * @param resourceAcquirer function to acquire resource from pool
+   */
+  private void acquireAtMaxLimit(Supplier<CloseableResource<?>> resourceAcquirer) throws Exception {
     Closer closer = Closer.create();
-    // Acquire all the clients
-    FileSystemContext fsContext = FileSystemContext.create(
-        ClientContext.create());
     for (int i = 0; i < Configuration
         .getInt(PropertyKey.USER_FILE_MASTER_CLIENT_POOL_SIZE_MAX); i++) {
-      closer.register(fsContext.acquireMasterClientResource());
+      // these acquire should proceed without blocking
+      closer.register(resourceAcquirer.get());
     }
-    Thread acquireThread = new Thread(new AcquireClient(fsContext));
+
+    // this acquire should block before we close existing resources
+    Thread acquireThread = new Thread(new AcquireClient(resourceAcquirer));
     acquireThread.start();
 
-    // Wait for the spawned thread to complete. If it is able to acquire a master client before
-    // the defined timeout, fail
+    // Wait for the spawned thread to complete.
+    // It shouldn't be able to complete as we haven't released resources yet
     long timeoutMs = Constants.SECOND_MS / 2;
     long start = System.currentTimeMillis();
     acquireThread.join(timeoutMs);
@@ -68,18 +84,18 @@ public final class FileSystemContextTest {
     }
   }
 
-  class AcquireClient implements Runnable {
+  private static class AcquireClient implements Runnable {
 
-    private final FileSystemContext mFsCtx;
+    private final Supplier<CloseableResource<?>> mCloseableResourceSupplier;
 
-    public AcquireClient(FileSystemContext fsContext) {
-      mFsCtx = fsContext;
+    public AcquireClient(Supplier<CloseableResource<?>> closeableResourceSupplier) {
+      mCloseableResourceSupplier = closeableResourceSupplier;
     }
 
     @Override
     public void run() {
-      CloseableResource<FileSystemMasterClient> client = mFsCtx.acquireMasterClientResource();
-      client.close();
+      CloseableResource<?> closeableResource = mCloseableResourceSupplier.get();
+      closeableResource.close();
     }
   }
 }
