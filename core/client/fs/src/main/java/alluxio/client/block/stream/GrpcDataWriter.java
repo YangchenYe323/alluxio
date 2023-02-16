@@ -36,6 +36,7 @@ import com.google.protobuf.UnsafeByteOperations;
 import io.netty.buffer.ByteBuf;
 
 import java.io.IOException;
+import java.util.Optional;
 import javax.annotation.concurrent.NotThreadSafe;
 
 /**
@@ -69,6 +70,9 @@ public final class GrpcDataWriter implements DataWriter {
   private final WriteRequestCommand mPartialRequest;
   private final long mChunkSize;
   private final GrpcBlockingStream<WriteRequest, WriteResponse> mStream;
+
+  /** The content hash resulting from the write operation if one is available. */
+  private String mContentHash = null;
 
   /**
    * The next pos to queue to the buffer.
@@ -188,6 +192,10 @@ public final class GrpcDataWriter implements DataWriter {
     }
   }
 
+  public Optional<String> getUfsContentHash() {
+    return Optional.ofNullable(mContentHash);
+  }
+
   @Override
   public void writeChunk(final ByteBuf buf) throws IOException {
     mPosToQueue += buf.readableBytes();
@@ -250,6 +258,9 @@ public final class GrpcDataWriter implements DataWriter {
             writeRequest, mAddress));
       }
       posWritten = response.getOffset();
+      if (response.hasContentHash()) {
+        mContentHash = response.getContentHash();
+      }
     } while (mPosToQueue != posWritten);
   }
 
@@ -260,7 +271,9 @@ public final class GrpcDataWriter implements DataWriter {
         return;
       }
       mStream.close();
-      mStream.waitForComplete(mWriterCloseTimeoutMs);
+      mStream.waitForComplete(mWriterCloseTimeoutMs)
+          .ifPresent(writeResponse -> mContentHash = writeResponse.hasContentHash()
+              ? writeResponse.getContentHash() : null);
     } finally {
       if (mClient != null) {
         mClient.close();

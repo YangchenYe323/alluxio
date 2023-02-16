@@ -31,6 +31,7 @@ import com.google.common.io.Closer;
 import io.netty.buffer.ByteBuf;
 
 import java.io.IOException;
+import java.util.Optional;
 import javax.annotation.concurrent.NotThreadSafe;
 
 /**
@@ -130,6 +131,11 @@ public final class LocalFileDataWriter implements DataWriter {
   @Override
   public int chunkSize() {
     return (int) mChunkSize;
+  }
+
+  @Override
+  public Optional<String> getUfsContentHash() {
+    return Optional.empty();
   }
 
   @Override
