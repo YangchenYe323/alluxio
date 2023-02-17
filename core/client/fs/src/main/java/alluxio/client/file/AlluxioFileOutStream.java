@@ -299,6 +299,7 @@ public class AlluxioFileOutStream extends FileOutStream {
       Preconditions.checkState(mCurrentBlockOutStream.remaining() <= 0,
           "The current block still has space left, no need to get new block");
       mCurrentBlockOutStream.flush();
+      mCurrentBlockOutStream.finishData();
       mPreviousBlockOutStreams.add(mCurrentBlockOutStream);
     }
 

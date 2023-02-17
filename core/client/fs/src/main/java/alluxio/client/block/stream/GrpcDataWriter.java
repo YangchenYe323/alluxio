@@ -62,7 +62,9 @@ public final class GrpcDataWriter implements DataWriter {
   /** Uses a long flush timeout since flush in S3 streaming upload may take a long time. */
   private final long mWriterFlushTimeoutMs;
 
-  private final CloseableResource<BlockWorkerClient> mClient;
+  private CloseableResource<BlockWorkerClient> mClient;
+  private DefaultBlockWorkerClient.DummyChannelHandle mHandle;
+
   private final WorkerNetAddress mAddress;
   private final WriteRequestCommand mPartialRequest;
   private final long mChunkSize;
@@ -178,6 +180,15 @@ public final class GrpcDataWriter implements DataWriter {
   }
 
   @Override
+  public void finishData() {
+    if (mClient.get() instanceof DefaultBlockWorkerClient) {
+      mHandle = ((DefaultBlockWorkerClient) mClient.get()).downgrade();
+      mClient.close();
+      mClient = null;
+    }
+  }
+
+  @Override
   public void writeChunk(final ByteBuf buf) throws IOException {
     mPosToQueue += buf.readableBytes();
     try {
@@ -215,7 +226,7 @@ public final class GrpcDataWriter implements DataWriter {
 
   @Override
   public void cancel() {
-    if (mClient.get().isShutdown()) {
+    if (mClient != null && mClient.get().isShutdown()) {
       return;
     }
     mStream.cancel();
@@ -245,13 +256,18 @@ public final class GrpcDataWriter implements DataWriter {
   @Override
   public void close() throws IOException {
     try {
-      if (mClient.get().isShutdown()) {
+      if (mClient != null && mClient.get().isShutdown()) {
         return;
       }
       mStream.close();
       mStream.waitForComplete(mWriterCloseTimeoutMs);
     } finally {
-      mClient.close();
+      if (mClient != null) {
+        mClient.close();
+      }
+      if (mHandle != null) {
+        mHandle.close();
+      }
     }
   }
 

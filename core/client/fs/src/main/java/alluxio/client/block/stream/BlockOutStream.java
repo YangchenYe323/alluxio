@@ -183,6 +183,20 @@ public class BlockOutStream extends OutputStream implements BoundedStream, Cance
     }
   }
 
+  /**
+   * Notify that there will be no further data transfer on this
+   * output stream.
+   * @throws IOException
+   */
+  public void finishData() {
+    if (mClosed) {
+      return;
+    }
+    for (DataWriter dataWriter : mDataWriters) {
+      dataWriter.finishData();
+    }
+  }
+
   @Override
   public void cancel() throws IOException {
     if (mClosed) {

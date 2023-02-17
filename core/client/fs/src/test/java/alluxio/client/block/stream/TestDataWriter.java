@@ -57,6 +57,9 @@ public class TestDataWriter implements DataWriter {
   }
 
   @Override
+  public void finishData() {}
+
+  @Override
   public void close() {
     return;
   }

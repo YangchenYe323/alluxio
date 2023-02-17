@@ -45,6 +45,10 @@ public final class LocalFileDataWriter implements DataWriter {
   private final long mChunkSize;
   private final CreateLocalBlockRequest mCreateRequest;
   private final Closer mCloser;
+
+  private CloseableResource<BlockWorkerClient> mClient;
+  private DefaultBlockWorkerClient.DummyChannelHandle mHandle;
+
   private final GrpcBlockingStream<CreateLocalBlockRequest, CreateLocalBlockResponse> mStream;
 
   /** The position to write the next byte at. */
@@ -73,7 +77,6 @@ public final class LocalFileDataWriter implements DataWriter {
     try {
       CloseableResource<BlockWorkerClient> blockWorker =
           context.acquireBlockWorkerClient(address);
-      closer.register(blockWorker);
       int writerBufferSizeMessages =
           conf.getInt(PropertyKey.USER_STREAMING_WRITER_BUFFER_SIZE_MESSAGES);
       long fileBufferBytes = conf.getBytes(PropertyKey.USER_FILE_BUFFER_BYTES);
@@ -102,7 +105,7 @@ public final class LocalFileDataWriter implements DataWriter {
       Preconditions.checkState(response != null && response.hasPath());
       LocalFileBlockWriter writer =
           closer.register(new LocalFileBlockWriter(response.getPath()));
-      return new LocalFileDataWriter(chunkSize, writer, createRequest, stream, closer,
+      return new LocalFileDataWriter(chunkSize, writer, createRequest, blockWorker, stream, closer,
           fileBufferBytes, dataTimeout);
     } catch (Exception e) {
       throw CommonUtils.closeAndRethrow(closer, e);
@@ -112,6 +115,16 @@ public final class LocalFileDataWriter implements DataWriter {
   @Override
   public long pos() {
     return mPos;
+  }
+
+  @Override
+  public void finishData() {
+    BlockWorkerClient client = mClient.get();
+    if (client instanceof DefaultBlockWorkerClient) {
+      mHandle = ((DefaultBlockWorkerClient) client).downgrade();
+      mClient.close();
+      mClient = null;
+    }
   }
 
   @Override
@@ -137,8 +150,10 @@ public final class LocalFileDataWriter implements DataWriter {
 
   @Override
   public void cancel() throws IOException {
-    mCloser.register(mStream::cancel);
-    mCloser.close();
+    if (mClient != null && mClient.get().isShutdown()) {
+      return;
+    }
+    mStream.cancel();
   }
 
   @Override
@@ -149,6 +164,14 @@ public final class LocalFileDataWriter implements DataWriter {
     mCloser.register(() -> {
       mStream.close();
       mStream.waitForComplete(mDataTimeoutMs);
+    });
+    mCloser.register(() -> {
+      if (mClient != null) {
+        mClient.close();
+      }
+      if (mHandle != null) {
+        mHandle.close();
+      }
     });
     mCloser.close();
   }
@@ -164,6 +187,7 @@ public final class LocalFileDataWriter implements DataWriter {
    */
   private LocalFileDataWriter(long packetSize, LocalFileBlockWriter writer,
       CreateLocalBlockRequest createRequest,
+      CloseableResource<BlockWorkerClient> client,
       GrpcBlockingStream<CreateLocalBlockRequest, CreateLocalBlockResponse> stream,
       Closer closer, long fileBufferBytes, long dataTimeoutMs) {
     mFileBufferBytes = fileBufferBytes;
@@ -171,6 +195,7 @@ public final class LocalFileDataWriter implements DataWriter {
     mCloser = closer;
     mWriter = writer;
     mCreateRequest = createRequest;
+    mClient = client;
     mStream = stream;
     mPosReserved = createRequest.getSpaceToReserve();
     mChunkSize = packetSize;

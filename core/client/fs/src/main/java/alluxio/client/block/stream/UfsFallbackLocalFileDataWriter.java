@@ -157,6 +157,12 @@ public final class UfsFallbackLocalFileDataWriter implements DataWriter {
   }
 
   @Override
+  public void finishData() {
+    mLocalFileDataWriter.finishData();
+    mGrpcDataWriter.finishData();
+  }
+
+  @Override
   public void cancel() throws IOException {
     if (mIsWritingToLocal) {
       mLocalFileDataWriter.cancel();

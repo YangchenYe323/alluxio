@@ -119,4 +119,9 @@ public interface DataWriter extends Closeable, Cancelable {
    * @return the current pos which is the same as the totally number of bytes written so far
    */
   long pos();
+
+  /**
+   * Notify that there will be no further data to be transmitted on this writer.
+   */
+  void finishData();
 }

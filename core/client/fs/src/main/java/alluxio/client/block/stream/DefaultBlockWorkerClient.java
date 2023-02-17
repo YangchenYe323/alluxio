@@ -13,34 +13,10 @@ package alluxio.client.block.stream;
 
 import alluxio.conf.AlluxioConfiguration;
 import alluxio.conf.PropertyKey;
+import alluxio.exception.runtime.AlluxioRuntimeException;
 import alluxio.exception.status.AlluxioStatusException;
 import alluxio.exception.status.UnauthenticatedException;
-import alluxio.grpc.BlockWorkerGrpc;
-import alluxio.grpc.CacheRequest;
-import alluxio.grpc.ClearMetricsRequest;
-import alluxio.grpc.ClearMetricsResponse;
-import alluxio.grpc.CreateLocalBlockRequest;
-import alluxio.grpc.CreateLocalBlockResponse;
-import alluxio.grpc.DataMessageMarshaller;
-import alluxio.grpc.DataMessageMarshallerProvider;
-import alluxio.grpc.FreeWorkerRequest;
-import alluxio.grpc.GrpcChannel;
-import alluxio.grpc.GrpcChannelBuilder;
-import alluxio.grpc.GrpcNetworkGroup;
-import alluxio.grpc.GrpcSerializationUtils;
-import alluxio.grpc.GrpcServerAddress;
-import alluxio.grpc.LoadRequest;
-import alluxio.grpc.LoadResponse;
-import alluxio.grpc.MoveBlockRequest;
-import alluxio.grpc.MoveBlockResponse;
-import alluxio.grpc.OpenLocalBlockRequest;
-import alluxio.grpc.OpenLocalBlockResponse;
-import alluxio.grpc.ReadRequest;
-import alluxio.grpc.ReadResponse;
-import alluxio.grpc.RemoveBlockRequest;
-import alluxio.grpc.RemoveBlockResponse;
-import alluxio.grpc.WriteRequest;
-import alluxio.grpc.WriteResponse;
+import alluxio.grpc.*;
 import alluxio.resource.AlluxioResourceLeakDetectorFactory;
 import alluxio.retry.RetryPolicy;
 import alluxio.retry.RetryUtils;
@@ -55,6 +31,7 @@ import io.netty.util.ResourceLeakTracker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
@@ -63,6 +40,30 @@ import javax.annotation.Nullable;
  * Default implementation of {@link BlockWorkerClient}.
  */
 public class DefaultBlockWorkerClient implements BlockWorkerClient {
+
+  /**
+   * A dummy handle referencing the underlying {@link GrpcChannel}. It's sole
+   * purpose is to avoid channel being closed. Holders of this class promises that
+   * they won't use the channel to actively send more data, but needs to keep ths channel
+   * alive for committing/aborting a transaction on that channel.
+   */
+  public class DummyChannelHandle implements Closeable {
+    GrpcChannel mStreamingChannel;
+    GrpcChannel mRpcChannel;
+
+    private DummyChannelHandle(GrpcChannel streamingChannel,
+        GrpcChannel rpcChannel) {
+      mStreamingChannel = streamingChannel;
+      mRpcChannel = rpcChannel;
+    }
+
+    @Override
+    public void close() throws IOException {
+      mStreamingChannel.shutdown();
+      mRpcChannel.shutdown();
+    }
+  }
+
   private static final Logger LOG =
       LoggerFactory.getLogger(DefaultBlockWorkerClient.class.getName());
 
@@ -70,7 +71,10 @@ public class DefaultBlockWorkerClient implements BlockWorkerClient {
       AlluxioResourceLeakDetectorFactory.instance()
           .newResourceLeakDetector(DefaultBlockWorkerClient.class);
 
+  private GrpcChannelBuilder mStreamingChannelBuilder;
   private GrpcChannel mStreamingChannel;
+
+  private GrpcChannelBuilder mRpcChannelBuilder;
   private GrpcChannel mRpcChannel;
   private final GrpcServerAddress mAddress;
   private final long mRpcTimeoutMs;
@@ -96,18 +100,18 @@ public class DefaultBlockWorkerClient implements BlockWorkerClient {
     // TODO(feng): unify worker client with AbstractClient
     while (retryPolicy.attempt()) {
       try {
+        mStreamingChannelBuilder = GrpcChannelBuilder.newBuilder(address, alluxioConf)
+                .setSubject(userState.getSubject())
+                .setNetworkGroup(GrpcNetworkGroup.STREAMING);
         // Disables channel pooling for data streaming to achieve better throughput.
         // Channel is still reused due to client pooling.
-        mStreamingChannel = GrpcChannelBuilder.newBuilder(address, alluxioConf)
-            .setSubject(userState.getSubject())
-            .setNetworkGroup(GrpcNetworkGroup.STREAMING)
-            .build();
+        mStreamingChannel = mStreamingChannelBuilder.build();
         mStreamingChannel.intercept(new StreamSerializationClientInterceptor());
         // Uses default pooling strategy for RPC calls for better scalability.
-        mRpcChannel = GrpcChannelBuilder.newBuilder(address, alluxioConf)
-            .setSubject(userState.getSubject())
-            .setNetworkGroup(GrpcNetworkGroup.RPC)
-            .build();
+        mRpcChannelBuilder = GrpcChannelBuilder.newBuilder(address, alluxioConf)
+                .setSubject(userState.getSubject())
+                .setNetworkGroup(GrpcNetworkGroup.RPC);
+        mRpcChannel = mRpcChannelBuilder.build();
         lastException = null;
         break;
       } catch (StatusRuntimeException e) {
@@ -247,5 +251,24 @@ public class DefaultBlockWorkerClient implements BlockWorkerClient {
   @Override
   public ListenableFuture<LoadResponse> load(LoadRequest request) {
     return mRpcFutureStub.load(request);
+  }
+
+  /**
+   * Downgrade the current client, only retaining a
+   * {@link DummyChannelHandle} to keep the channel alive.
+   * The caller of this method promises it won't send any data
+   * or make further request using the client. E.g., the client would
+   * be immediately released to {@link BlockWorkerClientPool}.
+   *
+   * @return a handle to keep the channel alive
+   */
+  public DummyChannelHandle downgrade() {
+    try {
+      GrpcChannel streamingChannel = mStreamingChannelBuilder.build();
+      GrpcChannel rpcChannel = mRpcChannelBuilder.build();
+      return new DummyChannelHandle(streamingChannel, rpcChannel);
+    } catch (AlluxioStatusException e) {
+      throw AlluxioRuntimeException.from(e);
+    }
   }
 }

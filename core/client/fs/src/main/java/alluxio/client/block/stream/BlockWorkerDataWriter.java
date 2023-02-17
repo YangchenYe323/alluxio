@@ -82,6 +82,9 @@ public final class BlockWorkerDataWriter implements DataWriter {
   }
 
   @Override
+  public void finishData() {}
+
+  @Override
   public int chunkSize() {
     return mChunkSize;
   }
