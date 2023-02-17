@@ -197,6 +197,15 @@ public final class GrpcDataWriter implements DataWriter {
   }
 
   @Override
+  public void finishData() {
+    if (mClient.get() instanceof DefaultBlockWorkerClient) {
+      mHandle = ((DefaultBlockWorkerClient) mClient.get()).downgrade();
+      mClient.close();
+      mClient = null;
+    }
+  }
+
+  @Override
   public void writeChunk(final ByteBuf buf) throws IOException {
     mPosToQueue += buf.readableBytes();
     try {
