@@ -1,0 +1,1564 @@
+[
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineDrain",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 18174.451412439532,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 16852.86548478182,
+                "50.0" : 18174.451412439532,
+                "90.0" : 19496.037340097242,
+                "95.0" : 19496.037340097242,
+                "99.0" : 19496.037340097242,
+                "99.9" : 19496.037340097242,
+                "99.99" : 19496.037340097242,
+                "99.999" : 19496.037340097242,
+                "99.9999" : 19496.037340097242,
+                "100.0" : 19496.037340097242
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    19496.037340097242,
+                    16852.86548478182
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineDrain",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 25939.394893325574,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 25151.836075003313,
+                "50.0" : 25939.394893325574,
+                "90.0" : 26726.953711647835,
+                "95.0" : 26726.953711647835,
+                "99.0" : 26726.953711647835,
+                "99.9" : 26726.953711647835,
+                "99.99" : 26726.953711647835,
+                "99.999" : 26726.953711647835,
+                "99.9999" : 26726.953711647835,
+                "100.0" : 26726.953711647835
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    25151.836075003313,
+                    26726.953711647835
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineDrain",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 610.1692359092481,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 478.58253671886155,
+                "50.0" : 610.1692359092481,
+                "90.0" : 741.7559350996346,
+                "95.0" : 741.7559350996346,
+                "99.0" : 741.7559350996346,
+                "99.9" : 741.7559350996346,
+                "99.99" : 741.7559350996346,
+                "99.999" : 741.7559350996346,
+                "99.9999" : 741.7559350996346,
+                "100.0" : 741.7559350996346
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    741.7559350996346,
+                    478.58253671886155
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineDrain",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 1021.27383546634,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1013.0374841486599,
+                "50.0" : 1021.27383546634,
+                "90.0" : 1029.5101867840199,
+                "95.0" : 1029.5101867840199,
+                "99.0" : 1029.5101867840199,
+                "99.9" : 1029.5101867840199,
+                "99.99" : 1029.5101867840199,
+                "99.999" : 1029.5101867840199,
+                "99.9999" : 1029.5101867840199,
+                "100.0" : 1029.5101867840199
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1029.5101867840199,
+                    1013.0374841486599
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineDrain",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 60.8910903581717,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 56.37814988723781,
+                "50.0" : 60.8910903581717,
+                "90.0" : 65.4040308291056,
+                "95.0" : 65.4040308291056,
+                "99.0" : 65.4040308291056,
+                "99.9" : 65.4040308291056,
+                "99.99" : 65.4040308291056,
+                "99.999" : 65.4040308291056,
+                "99.9999" : 65.4040308291056,
+                "100.0" : 65.4040308291056
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    65.4040308291056,
+                    56.37814988723781
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineDrain",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 74.01975992365627,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 73.85206879192198,
+                "50.0" : 74.01975992365627,
+                "90.0" : 74.18745105539057,
+                "95.0" : 74.18745105539057,
+                "99.0" : 74.18745105539057,
+                "99.9" : 74.18745105539057,
+                "99.99" : 74.18745105539057,
+                "99.999" : 74.18745105539057,
+                "99.9999" : 74.18745105539057,
+                "100.0" : 74.18745105539057
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    73.85206879192198,
+                    74.18745105539057
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineRead",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 4378.773429182999,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4302.798152729924,
+                "50.0" : 4378.773429182999,
+                "90.0" : 4454.748705636074,
+                "95.0" : 4454.748705636074,
+                "99.0" : 4454.748705636074,
+                "99.9" : 4454.748705636074,
+                "99.99" : 4454.748705636074,
+                "99.999" : 4454.748705636074,
+                "99.9999" : 4454.748705636074,
+                "100.0" : 4454.748705636074
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4302.798152729924,
+                    4454.748705636074
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineRead",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 4527.767730789739,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4506.8271201619855,
+                "50.0" : 4527.767730789739,
+                "90.0" : 4548.708341417492,
+                "95.0" : 4548.708341417492,
+                "99.0" : 4548.708341417492,
+                "99.9" : 4548.708341417492,
+                "99.99" : 4548.708341417492,
+                "99.999" : 4548.708341417492,
+                "99.9999" : 4548.708341417492,
+                "100.0" : 4548.708341417492
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4506.8271201619855,
+                    4548.708341417492
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineRead",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 256.2453396975897,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 251.1043632338084,
+                "50.0" : 256.2453396975897,
+                "90.0" : 261.38631616137104,
+                "95.0" : 261.38631616137104,
+                "99.0" : 261.38631616137104,
+                "99.9" : 261.38631616137104,
+                "99.99" : 261.38631616137104,
+                "99.999" : 261.38631616137104,
+                "99.9999" : 261.38631616137104,
+                "100.0" : 261.38631616137104
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    251.1043632338084,
+                    261.38631616137104
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineRead",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 270.85254534911223,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 264.17594091813885,
+                "50.0" : 270.85254534911223,
+                "90.0" : 277.52914978008556,
+                "95.0" : 277.52914978008556,
+                "99.0" : 277.52914978008556,
+                "99.9" : 277.52914978008556,
+                "99.99" : 277.52914978008556,
+                "99.999" : 277.52914978008556,
+                "99.9999" : 277.52914978008556,
+                "100.0" : 277.52914978008556
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    277.52914978008556,
+                    264.17594091813885
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineRead",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 12.6043796176451,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 12.23098352144019,
+                "50.0" : 12.6043796176451,
+                "90.0" : 12.977775713850008,
+                "95.0" : 12.977775713850008,
+                "99.0" : 12.977775713850008,
+                "99.9" : 12.977775713850008,
+                "99.99" : 12.977775713850008,
+                "99.999" : 12.977775713850008,
+                "99.9999" : 12.977775713850008,
+                "100.0" : 12.977775713850008
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    12.977775713850008,
+                    12.23098352144019
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalBaselineRead",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 12.370219029903842,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 11.957576598845623,
+                "50.0" : 12.370219029903842,
+                "90.0" : 12.78286146096206,
+                "95.0" : 12.78286146096206,
+                "99.0" : 12.78286146096206,
+                "99.9" : 12.78286146096206,
+                "99.99" : 12.78286146096206,
+                "99.999" : 12.78286146096206,
+                "99.9999" : 12.78286146096206,
+                "100.0" : 12.78286146096206
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    11.957576598845623,
+                    12.78286146096206
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 6484.140970821339,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 5177.967038559429,
+                "50.0" : 6484.140970821339,
+                "90.0" : 7790.314903083248,
+                "95.0" : 7790.314903083248,
+                "99.0" : 7790.314903083248,
+                "99.9" : 7790.314903083248,
+                "99.99" : 7790.314903083248,
+                "99.999" : 7790.314903083248,
+                "99.9999" : 7790.314903083248,
+                "100.0" : 7790.314903083248
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    5177.967038559429,
+                    7790.314903083248
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 27016.97540784185,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 26768.63587505032,
+                "50.0" : 27016.97540784185,
+                "90.0" : 27265.314940633376,
+                "95.0" : 27265.314940633376,
+                "99.0" : 27265.314940633376,
+                "99.9" : 27265.314940633376,
+                "99.99" : 27265.314940633376,
+                "99.999" : 27265.314940633376,
+                "99.9999" : 27265.314940633376,
+                "100.0" : 27265.314940633376
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    27265.314940633376,
+                    26768.63587505032
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 279.880589270699,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 278.172565429049,
+                "50.0" : 279.880589270699,
+                "90.0" : 281.588613112349,
+                "95.0" : 281.588613112349,
+                "99.0" : 281.588613112349,
+                "99.9" : 281.588613112349,
+                "99.99" : 281.588613112349,
+                "99.999" : 281.588613112349,
+                "99.9999" : 281.588613112349,
+                "100.0" : 281.588613112349
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    278.172565429049,
+                    281.588613112349
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 985.449090911927,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 877.7472089635904,
+                "50.0" : 985.449090911927,
+                "90.0" : 1093.1509728602634,
+                "95.0" : 1093.1509728602634,
+                "99.0" : 1093.1509728602634,
+                "99.9" : 1093.1509728602634,
+                "99.99" : 1093.1509728602634,
+                "99.999" : 1093.1509728602634,
+                "99.9999" : 1093.1509728602634,
+                "100.0" : 1093.1509728602634
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    877.7472089635904,
+                    1093.1509728602634
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 16.618771799966517,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 13.49348460595891,
+                "50.0" : 16.618771799966517,
+                "90.0" : 19.744058993974125,
+                "95.0" : 19.744058993974125,
+                "99.0" : 19.744058993974125,
+                "99.9" : 19.744058993974125,
+                "99.99" : 19.744058993974125,
+                "99.999" : 19.744058993974125,
+                "99.9999" : 19.744058993974125,
+                "100.0" : 19.744058993974125
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    13.49348460595891,
+                    19.744058993974125
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.marshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 70.13604438232917,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 64.22227820038603,
+                "50.0" : 70.13604438232917,
+                "90.0" : 76.04981056427233,
+                "95.0" : 76.04981056427233,
+                "99.0" : 76.04981056427233,
+                "99.9" : 76.04981056427233,
+                "99.99" : 76.04981056427233,
+                "99.999" : 76.04981056427233,
+                "99.9999" : 76.04981056427233,
+                "100.0" : 76.04981056427233
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    76.04981056427233,
+                    64.22227820038603
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalBaseline",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 2889709.473700663,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2819314.1217270414,
+                "50.0" : 2889709.473700663,
+                "90.0" : 2960104.825674285,
+                "95.0" : 2960104.825674285,
+                "99.0" : 2960104.825674285,
+                "99.9" : 2960104.825674285,
+                "99.99" : 2960104.825674285,
+                "99.999" : 2960104.825674285,
+                "99.9999" : 2960104.825674285,
+                "100.0" : 2960104.825674285
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2819314.1217270414,
+                    2960104.825674285
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalBaseline",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 2746027.4189108433,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2529222.882806914,
+                "50.0" : 2746027.4189108433,
+                "90.0" : 2962831.955014773,
+                "95.0" : 2962831.955014773,
+                "99.0" : 2962831.955014773,
+                "99.9" : 2962831.955014773,
+                "99.99" : 2962831.955014773,
+                "99.999" : 2962831.955014773,
+                "99.9999" : 2962831.955014773,
+                "100.0" : 2962831.955014773
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2962831.955014773,
+                    2529222.882806914
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalBaseline",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 2691773.302596682,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2478731.5839610803,
+                "50.0" : 2691773.302596682,
+                "90.0" : 2904815.021232284,
+                "95.0" : 2904815.021232284,
+                "99.0" : 2904815.021232284,
+                "99.9" : 2904815.021232284,
+                "99.99" : 2904815.021232284,
+                "99.999" : 2904815.021232284,
+                "99.9999" : 2904815.021232284,
+                "100.0" : 2904815.021232284
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2904815.021232284,
+                    2478731.5839610803
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalBaseline",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 2810706.4800642487,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2763969.8379181,
+                "50.0" : 2810706.4800642487,
+                "90.0" : 2857443.122210398,
+                "95.0" : 2857443.122210398,
+                "99.0" : 2857443.122210398,
+                "99.9" : 2857443.122210398,
+                "99.99" : 2857443.122210398,
+                "99.999" : 2857443.122210398,
+                "99.9999" : 2857443.122210398,
+                "100.0" : 2857443.122210398
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2763969.8379181,
+                    2857443.122210398
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalBaseline",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 2544949.925156394,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2538638.27376339,
+                "50.0" : 2544949.925156394,
+                "90.0" : 2551261.5765493982,
+                "95.0" : 2551261.5765493982,
+                "99.0" : 2551261.5765493982,
+                "99.9" : 2551261.5765493982,
+                "99.99" : 2551261.5765493982,
+                "99.999" : 2551261.5765493982,
+                "99.9999" : 2551261.5765493982,
+                "100.0" : 2551261.5765493982
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2551261.5765493982,
+                    2538638.27376339
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalBaseline",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 2263936.4554993305,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2103254.8740302436,
+                "50.0" : 2263936.4554993305,
+                "90.0" : 2424618.0369684175,
+                "95.0" : 2424618.0369684175,
+                "99.0" : 2424618.0369684175,
+                "99.9" : 2424618.0369684175,
+                "99.99" : 2424618.0369684175,
+                "99.999" : 2424618.0369684175,
+                "99.9999" : 2424618.0369684175,
+                "100.0" : 2424618.0369684175
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2103254.8740302436,
+                    2424618.0369684175
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 1.9421363639476154E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.92258892100652E7,
+                "50.0" : 1.9421363639476154E7,
+                "90.0" : 1.9616838068887107E7,
+                "95.0" : 1.9616838068887107E7,
+                "99.0" : 1.9616838068887107E7,
+                "99.9" : 1.9616838068887107E7,
+                "99.99" : 1.9616838068887107E7,
+                "99.999" : 1.9616838068887107E7,
+                "99.9999" : 1.9616838068887107E7,
+                "100.0" : 1.9616838068887107E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.92258892100652E7,
+                    1.9616838068887107E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "1",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 1.807018903019034E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.7966289088568002E7,
+                "50.0" : 1.807018903019034E7,
+                "90.0" : 1.8174088971812684E7,
+                "95.0" : 1.8174088971812684E7,
+                "99.0" : 1.8174088971812684E7,
+                "99.9" : 1.8174088971812684E7,
+                "99.99" : 1.8174088971812684E7,
+                "99.999" : 1.8174088971812684E7,
+                "99.9999" : 1.8174088971812684E7,
+                "100.0" : 1.8174088971812684E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.7966289088568002E7,
+                    1.8174088971812684E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 1.8688252468044817E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.8614799533864502E7,
+                "50.0" : 1.8688252468044817E7,
+                "90.0" : 1.8761705402225133E7,
+                "95.0" : 1.8761705402225133E7,
+                "99.0" : 1.8761705402225133E7,
+                "99.9" : 1.8761705402225133E7,
+                "99.99" : 1.8761705402225133E7,
+                "99.999" : 1.8761705402225133E7,
+                "99.9999" : 1.8761705402225133E7,
+                "100.0" : 1.8761705402225133E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.8614799533864502E7,
+                    1.8761705402225133E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "10",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 1.8952980695530042E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.807166083542104E7,
+                "50.0" : 1.8952980695530042E7,
+                "90.0" : 1.983430055563904E7,
+                "95.0" : 1.983430055563904E7,
+                "99.0" : 1.983430055563904E7,
+                "99.9" : 1.983430055563904E7,
+                "99.99" : 1.983430055563904E7,
+                "99.999" : 1.983430055563904E7,
+                "99.9999" : 1.983430055563904E7,
+                "100.0" : 1.983430055563904E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.807166083542104E7,
+                    1.983430055563904E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "true"
+        },
+        "primaryMetric" : {
+            "score" : 1.9996312797367636E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.9742775907785244E7,
+                "50.0" : 1.9996312797367636E7,
+                "90.0" : 2.0249849686950028E7,
+                "95.0" : 2.0249849686950028E7,
+                "99.0" : 2.0249849686950028E7,
+                "99.9" : 2.0249849686950028E7,
+                "99.99" : 2.0249849686950028E7,
+                "99.999" : 2.0249849686950028E7,
+                "99.9999" : 2.0249849686950028E7,
+                "100.0" : 2.0249849686950028E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.9742775907785244E7,
+                    2.0249849686950028E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "alluxio.grpc.ZeroCopyReadResponseBench.unmarshalZeroCopy",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "1.8.0_211",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.211-b12",
+        "warmupIterations" : 1,
+        "warmupTime" : "3 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "3 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "mChunkSizeMB" : "100",
+            "mUseMappedBuffer" : "false"
+        },
+        "primaryMetric" : {
+            "score" : 2.0055772851359002E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.9911613903691158E7,
+                "50.0" : 2.0055772851359002E7,
+                "90.0" : 2.019993179902685E7,
+                "95.0" : 2.019993179902685E7,
+                "99.0" : 2.019993179902685E7,
+                "99.9" : 2.019993179902685E7,
+                "99.99" : 2.019993179902685E7,
+                "99.999" : 2.019993179902685E7,
+                "99.9999" : 2.019993179902685E7,
+                "100.0" : 2.019993179902685E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2.019993179902685E7,
+                    1.9911613903691158E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+
